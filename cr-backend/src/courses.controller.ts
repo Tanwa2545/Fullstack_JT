@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class CoursesController {
   @Get()
   findAll() {
-    return {message: 'Hello world'};
+    return {message: 'Hello human'};
   }
 }
