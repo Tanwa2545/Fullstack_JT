@@ -8,7 +8,6 @@ const App = () => {
     fetch('http://localhost:3000/courses')
       .then(res => res.json())
       .then(courses =>{
-        console.log(courses);
         setCourses(courses);
     })
   },[]); // [] is for run 1 time only
@@ -16,8 +15,8 @@ const App = () => {
   return (
     <div className="App">
       <ul>
-      {courses.map((item) => (
-        <li>{item.title}</li>
+      {courses.map(item => (
+        <li key={item.id}>{item.number} - {item.title}</li>
       ))}
       </ul>
     </div>
