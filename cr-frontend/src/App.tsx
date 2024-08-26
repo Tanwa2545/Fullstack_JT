@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
-  const [message, setMessage] = useState('My message blah');
+  const [courses, setCourses] = useState<any[]>([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/courses')
       .then(res => res.json())
-      .then(obj =>{
-        setMessage(obj.message);
+      .then(courses =>{
+        console.log(courses);
+        setCourses(courses);
     })
   },[]); // [] is for run 1 time only
 
   return (
     <div className="App">
-      {message}
+      <ul>
+      {courses.map((item) => (
+        <li>{item.title}</li>
+      ))}
+      </ul>
     </div>
   );
 }
